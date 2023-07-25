@@ -3,6 +3,7 @@ import Head from "next/head";
 import Sidebar from "./Sidebar";
 import Header from "./Header";
 import { useRouter } from "next/router";
+import Script from 'next/script'; // Importamos el componente next/script
 
 const Layout = ({ children }) => {
   // Hook de routing
@@ -19,7 +20,8 @@ const Layout = ({ children }) => {
           crossorigin="anonymous"
           referrerpolicy="no-referrer"
         />
-        <script src="https://cdn.tailwindcss.com"></script>
+        {/* Reemplazamos el script síncrono con next/script */}
+        <Script src="https://cdn.tailwindcss.com" strategy="lazyOnload" />
       </Head>
 
       {router.pathname === "/login" || router.pathname === "/nuevacuenta" ? (
